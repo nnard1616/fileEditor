@@ -1,10 +1,26 @@
-#include <iostream>
-#include "helperFunctions.h"
 
-using namespace std;
+#include "ui.h"
+
 
 void testDriver(){
     cout << "testing" << endl;
+    ifstream inFile;
+//    ofstream outFile;
+
+    inFile.open("testFile.txt");
+
+    cout << "a" <<endl;
+    vector<string> sLines;
+    string sLine;
+    while(getline(inFile, sLine))
+        sLines.push_back(sLine);
+    for (auto itr = sLines.begin(); itr != sLines.end(); itr++)
+        cout << *itr << endl;
+
+    inFile.close();
+
+    editTracker history("testFile.txt");
+    cout << history << endl;
 }
 
 
@@ -17,7 +33,7 @@ int main() {
     if (choice == 'T')
         testDriver();
     else if (choice == 'U') {
-//        UIDetectiveOffice ui;
+//        UI ui;
 //        ui.process();
         cout << "WIP" << endl;
     }

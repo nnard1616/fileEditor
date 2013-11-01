@@ -5,8 +5,12 @@ CONFIG -= qt
 QMAKE_CXXFLAGS += -std=c++11
 SOURCES += \
     test.cpp \
-    helperFunctions.cpp
+    helperFunctions.cpp \
+    editTracker.cpp \
+    ui.cpp
 
 HEADERS += \
-    helperFunctions.h
+    helperFunctions.h \
+    editTracker.h \
+    ui.h
 
