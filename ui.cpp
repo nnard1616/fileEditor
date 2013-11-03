@@ -45,6 +45,7 @@ void UI::openFile(){//no args given and/or continuation of opening files loop
                 else if (!::validFile(fileInfo))
                     cout << "File has either too many lines (more than 10) or line(s) that are too long (256 chars max).  Please try again." << endl;
                 else{
+                    cout << "File is valid and was successfully opened." << endl;
                     fileEdits.push_back(fileInfo);
                     currFileEditITR = fileEdits.end()-1;
                     searchOrEnd();
@@ -71,7 +72,35 @@ void UI::openFile(){//no args given and/or continuation of opening files loop
          << "Total Inserts: " << totalInserts << endl
          << "Total Appends: " << totalAppends << endl;
 
-}//not completely finished here
+}
+
+void UI::openFile(string fileName){//filename argument provided by user
+    ifstream inFile;
+
+    editTracker fileInfo(fileName);
+    inFile.open(fileName);
+
+    string sLine;
+    while(getline(inFile, sLine))
+        fileInfo.lines.push_back(sLine);
+    inFile.close();
+
+    if (fileInfo.lines.size() == 0){
+        cout << "File does not exist or it is empty, please try again." << endl;
+        openFile();
+    }
+    else if (!::validFile(fileInfo)){
+        cout << "File has either too many lines (more than 10) or line(s) that are too long (256 chars max).  Please try again." << endl;
+        openFile();
+    }
+    else{
+        cout << "File is valid and was successfully opened." << endl;
+        fileEdits.push_back(fileInfo);
+        currFileEditITR = fileEdits.end()-1;
+        searchOrEnd();
+        openFile();
+    }
+}
 
 void UI::searchOrEnd(){
     string inchoice;

@@ -148,16 +148,19 @@ void testDriver(){
 
 
 
-int main() {
-    cout << "Run test driver (T) or user interface (U): ";
-    char choice, inchoice;
-    cin >> inchoice;
-    choice = toupper(inchoice);
-    if (choice == 'T')
-        testDriver();
-    else if (choice == 'U') {
+int main(int argc, char* argv[]) {
+    if (argc > 2){
+        cerr << "Please give a file name as an argument, or none at all." << endl;
+        return 1;
+    }
+    else{
         UI ui;
-        ui.openFile();
+        if (argc == 2){
+            ui.openFile(string(argv[1]));
+        }
+        else{
+            ui.openFile();
+        }
     }
     return 0;
 }

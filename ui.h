@@ -9,6 +9,7 @@ class UI{
 public:
     UI();
     void openFile();
+    void openFile(string fileName);
     void searchOrEnd();//asks if user wants to do more searching/edits, or if they want to save (or not save) and close the file
     void search();
     vector<editTracker> fileEdits;
