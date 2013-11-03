@@ -9,7 +9,7 @@ editTracker::editTracker(string inFileName){
 
 ostream& operator <<(ostream& osObject, editTracker etObject){
     osObject << "File Name: " << etObject.fileName << endl
-             << "Number of remplacements: " << etObject.replaceCTR << endl
+             << "Number of replacements: " << etObject.replaceCTR << endl
              << "Number of insertions: " << etObject.insertCTR << endl
              << "Number of appends: " << etObject.appendCTR << endl
              << "Total Edits: " << etObject.totalEdits() << endl;

@@ -1,12 +1,5 @@
 #ifndef HELPERFUNCTIONS_H
 #define HELPERFUNCTIONS_H
-#ifdef WINDOWS
-    #include <direct.h>
-    #define GetCurrentDir _getcwd
-#else
-    #include <unistd.h>
-    #define GetCurrentDir getcwd
- #endif
 
 #include <iostream>
 #include <fstream>
@@ -15,8 +8,8 @@
 #include <vector>
 #include <sstream>
 #include <iterator>
-#include <algorithm>
-#include <stdio.h>  /* defines FILENAME_MAX */
+#include <stdio.h>  /* defines remove */
+#include <climits>
 
 
 using namespace std;

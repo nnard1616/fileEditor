@@ -9,7 +9,7 @@ struct editTracker{
     int totalEdits(){return (replaceCTR+insertCTR+appendCTR);}
     string fileName;
     vector<string> lines;
-    void commitChanges();
+
     friend ostream& operator<< (ostream& osObject, editTracker etObject);
 //    editTracker& operator+= (const editTracker& right);
 };
